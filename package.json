@@ -1,0 +1,29 @@
+{
+  "name": "gas-unit-test",
+  "version": "1.0.0",
+  "description": "Unit Test setup for Google Apps Script Environment.",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "jasmine": "^3.3.0",
+    "nyc": "^13.1.0"
+  },
+  "scripts": {
+    "build": "rm -fr dist && mkdir dist && gulp build",
+    "deploy": "npm run build && clasp push",
+    "test": "rm -fr test_src && gulp buildTestSources && nyc jasmine"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 95,
+    "all": true,
+    "include": [
+      "test_src/**"
+    ],
+    "exclude": []
+  },
+  "author": "Rodrigo Goulart Ribeiro",
+  "license": "ISC",
+  "homepage": "https://github.com/rgoularti/gas-unit-test#readme"
+}
